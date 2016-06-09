@@ -17,6 +17,8 @@
 
 package io.bitsquare.trade.offer;
 
+import py4j.GatewayServer;
+
 import io.bitsquare.btc.pricefeed.PriceFeed;
 import io.bitsquare.common.handlers.ErrorMessageHandler;
 import io.bitsquare.common.handlers.ResultHandler;
@@ -79,6 +81,11 @@ public class OfferBookService {
                 });
             }
         });
+
+        // start py4j server
+        GatewayServer gatewayServer = new GatewayServer(this);
+        gatewayServer.start();
+        System.out.println("Gateway Server Started");
     }
 
     public void addOfferBookChangedListener(OfferBookChangedListener offerBookChangedListener) {
