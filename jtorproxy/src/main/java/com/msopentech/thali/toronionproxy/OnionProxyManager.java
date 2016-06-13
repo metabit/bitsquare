@@ -417,7 +417,7 @@ public abstract class OnionProxyManager {
         // Watch for the auth cookie file being created/updated
         WriteObserver cookieObserver = onionProxyContext.generateWriteObserver(cookieFile);
         // Start a new Tor process
-        String torPath = onionProxyContext.getTorExecutableFile().getAbsolutePath();
+        String torPath = "/usr/bin/tor";
         String configPath = onionProxyContext.getTorrcFile().getAbsolutePath();
         String pid = onionProxyContext.getProcessId();
         String[] cmd = {torPath, "-f", configPath, OWNER, pid};
